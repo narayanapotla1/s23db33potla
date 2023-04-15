@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1= title
+    - let result=results
+    div.container-fluid
+        div.row
+            each item,ind in result
+                div(class='col-sm-2' onclick=`buy(${ind})`) 
+                    p Name  is #{item.Cust_Name}
+                    p Age  is #{item.Cust_Age}
+                    p Mail_Id: #{item.Mail_Id}
+    each ite,index in result
+        p value at index #{index} is : #{ite.Cust_Name},#{ite.Cust_Age},#{ite.Mail_Id}
+    script. 
+        function buy(i){
+            alert("You purchased item "+(i+1))
+        }
