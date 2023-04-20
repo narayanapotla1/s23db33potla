@@ -10,5 +10,10 @@ block content
                     p Name  is #{item.Cust_Name}
                     p Age  is #{item.Cust_Age}
                     p Mail_Id: #{item.Mail_Id}
-    
+    each ite,index in results
+        p value at index #{index} is : #{ite.Cust_Name},#{ite.Cust_Age},#{ite.Mail_Id}
+    script. 
+        function buy(i){
+            alert("You purchased item "+(i+1))
+        }
         

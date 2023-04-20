@@ -1,0 +1,44 @@
+extends layout
+block content
+
+    h1= title
+
+    if (toShow == null)
+        h2 No instance to update
+    else
+        - let Cust_Id = toShow._id
+        - let customername = toShow.Cust_Name
+        - let customerage = toShow.Cust_Age
+        - let mailid = toShow.Mail_Id
+        div.row(class='mb-2')
+            div.mr-1 ID is
+            div #{Cust_Id}
+        - let actionid = "/resource/customers/" + Cust_Id
+        form(id='CustomerForm', action= actionid, method="PUT")
+            div.form-group
+                label.costumeAttr(for='Cust_Name', class="form-label") Customer Name
+                input#costume_type(type='text', name='Cust_Name', value= customername, class="form-control" )
+            div.form-group
+                label.costumeAttr(for='Cust_Age' class="form-label") Customer Age
+                input#size(type='number', name='Cust_Age', value= customerage, class="form-control")
+            div.form-group
+                label.costumeAttr(for='Mail_Id' class="form-label") Mail Id
+                input#cost(type='text', name='Mail_Id', value= mailid, class="form-control" )
+            input(type="submit" class="btn btn-success")
+        script.
+            document.forms['CustomerForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                    alert("Update succeded")
+                    // TODO handle body
+                }).catch((error) => {
+                    // TODO handle error
+                    alert("Update failed " + error )
+                }); 
+            });     

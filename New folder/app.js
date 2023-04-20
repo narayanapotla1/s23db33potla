@@ -56,7 +56,7 @@ async function recreateDB(){
   
   let instance1 = new
   Customer({
-    Cust_Name:"ghost",Cust_Age :34,Mail_Id:"dfdf@gmail.com"
+    Cust_Name:"Mounitha",Cust_Age :20,Mail_Id:"vemulamounitha@gmail.com"
   });
  instance1.save().then(()=>{
    console.log("First object saved")
@@ -66,7 +66,7 @@ async function recreateDB(){
 
  let instance2 = new
   Customer({
-   Cust_Name:"suresh",Cust_Age :74,Mail_Id:"dfd@gmail.com"  
+   Cust_Name:"Mahesh",Cust_Age :25,Mail_Id:"mahesh66@gmail.com"  
   });
  instance2.save().then(()=>{
    console.log("Second object saved")
@@ -76,7 +76,7 @@ async function recreateDB(){
  
  let instance3 = new
   Customer({
-    Cust_Name:"Dhaha",Cust_Age :14,Mail_Id:"Njyas@gmail.com"
+    Cust_Name:"Jo",Cust_Age :30,Mail_Id:"joyce@gmail.com"
   });
   instance3.save().then(()=>{
    console.log("Third object saved")

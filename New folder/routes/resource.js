@@ -18,4 +18,12 @@ router.get('/customers/:id', Customer_controller.Customer_detail);
 // GET request for list of all Costume items.
 router.get('/customers', Customer_controller.Customer_list);
 module.exports = router;
-
+// API for our resources
+exports.api = function(req, res) {
+res.write('[');
+res.write('{"resource":"Customers", ');
+res.write(' "verbs":["GET","PUT", "DELETE"] ');
+res.write('}');
+res.write(']')
+res.send();
+};
