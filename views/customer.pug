@@ -2,13 +2,17 @@ extends layout
 
 block content
     h1= title
-    
-    div.container-fliud
-        div.row
-            each item,ind in results
-                div(class='col-sm-2' onclick=`buy(${ind})`) 
-                    p Name  is #{item.Cust_Name}
-                    p Age  is #{item.Cust_Age}
-                    p Mail_Id: #{item.Mail_Id}
-    
+    - let items  = results;
+    div(class="container-fluid")
+     div(class="row m-1")
+      each item in items
+       - let destination = `dispatch(\"/customer/update?id=${item._id}\")`
+       div(class="row-sm-2", class="m-1") Item #{item.Cust_Name}(#{item.Cust_Age}) is #{item.Mail_Id}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
+     script.
+      function dispatch(path){
+       window.location.href=path
+      }
+
+
         

@@ -1,4 +1,4 @@
-var Customer = require('../models/Customer');
+var Customer = require('../models/customer');
 // List of all Customers
 exports.Customer_list = async function(req, res) {
 //res.send('NOT IMPLEMENTED: Customer list');
